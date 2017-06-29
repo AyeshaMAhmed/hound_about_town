@@ -1,0 +1,18 @@
+<h1>User Show Page</h1>
+
+<h2>Username<%= @user.username %></h2> 
+
+<h2>Email<%= @user.email %></h2> 
+<h2>City<%= @user.city %></h2> 
+<h2>State<%= @user.state %></h2> 
+<h2>Zipcode<%= @user.zipcode %></h2> 
+<h2>About Me<%= @user.about_me %></h2> 
+<!-- <h2>Pet Name<%= @user.id %></h2> 
+<h2>Pet Age<%= @user.id %></h2> 
+<h2>About Me<%= @user.id %></h2> 
+<h2>Breed<%= @user.id %></h2>  -->
+
+<%= form_tag "/users/#{@user.id}/edit", method: :get do %>
+  <input type="submit" value="Edit Profile & Preferences">
+<% end %> 
+

@@ -1,6 +1,7 @@
-<h1> Create an Account </h1>
+<h1> Edit Account </h1>
 
-<%= form_tag '/users', method: :post do  %>
+<%= form_tag "/users/#{@user.id}", method: :patch do %>
+
   <div>
     Name: <input type="text" name="username">
   </div>
@@ -37,8 +38,5 @@
   </div>
 
   <br>
-  <button name="button" type="submit">Submit</button>
-
-
+  <input type="submit" value="Submit">
 <% end %>
-
