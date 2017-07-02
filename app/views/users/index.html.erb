@@ -1,0 +1,8 @@
+<h1>Users Index Page </h1>
+
+<% @users.each do |user| %>
+  <p>Username: <%= user.username %></p> 
+  <p>City: <%= user.city %></p> 
+  <p>State: <%= user.state %></p> 
+  
+<% end %>

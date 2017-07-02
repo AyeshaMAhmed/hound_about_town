@@ -1,18 +1,26 @@
-<h1>User Show Page</h1>
+<h1>User Profile Page</h1>  
+<!-- user show.html.erb page -->
 
-<h2>Username<%= @user.username %></h2> 
+<p>Username: <%= @user.username %></p> 
+<p>Email: <%= @user.email %></p> 
+<p>City: <%= @user.city %></p> 
+<p>State: <%= @user.state %></p> 
+<p>Zipcode: <%= @user.zipcode %></p> 
+<p>About Me: <%= @user.about_me %></p> 
 
-<h2>Email<%= @user.email %></h2> 
-<h2>City<%= @user.city %></h2> 
-<h2>State<%= @user.state %></h2> 
-<h2>Zipcode<%= @user.zipcode %></h2> 
-<h2>About Me<%= @user.about_me %></h2> 
-<!-- <h2>Pet Name<%= @user.id %></h2> 
-<h2>Pet Age<%= @user.id %></h2> 
-<h2>About Me<%= @user.id %></h2> 
-<h2>Breed<%= @user.id %></h2>  -->
+<hr>
+
+<% @pets.each do |pet| %>
+  <p>Pet Name: <%= pet.name %></p> 
+  <p>Gender : <%= pet.gender %></p> 
+  <p>Age : <%= pet.age %></p> 
+  
+<% end %>
+
 
 <%= form_tag "/users/#{@user.id}/edit", method: :get do %>
   <input type="submit" value="Edit Profile & Preferences">
+
+
 <% end %> 
 

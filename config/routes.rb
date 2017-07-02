@@ -5,7 +5,7 @@ resources :users
 get "/" => "sessions#new"
 
 get "/login" => "sessions#new"
-post "/login" => "sessions#create"
+post "/login" => "users#show"
 get "/logout" => "sessions#destroy"
 get "/signup" => "users#new"
 

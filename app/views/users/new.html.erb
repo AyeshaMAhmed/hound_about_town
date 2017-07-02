@@ -1,6 +1,7 @@
 <h1> Create an Account </h1>
 
 <%= form_tag '/users', method: :post do  %>
+
   <div>
     Name: <input type="text" name="username">
   </div>
@@ -42,3 +43,6 @@
 
 <% end %>
 
+<%= form_tag "/users/show", method: :get do %>
+  <input type="submit" value="New to the site? Create an account!">
+<% end %> 
