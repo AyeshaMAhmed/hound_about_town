@@ -12,7 +12,7 @@ class PlacesController < ApplicationController
    end
 
 
-   @businesses = Unirest.get("https://api.yelp.com/v3/businesses/search?term=winery&attributes=dogs_allowed&location=#{@location}", headers: {'Authorization' => 'Bearer 5fsDEJnWqGEObi2nRiBQA68cS8EwBqLdJhF0OByep0FnngxJp4xCZ_p5SDqt492SF5z-b0ebYQFyJ7IcfPuQYAz4aAKRiy-iaYgVGfx_8STx0W7GEEOltnKL_49iWXYx'}).body["businesses"]
+   @businesses = Unirest.get("https://api.yelp.com/v3/businesses/search?term=winery+dogs&location=#{@location}", headers: {'Authorization' => 'Bearer 5fsDEJnWqGEObi2nRiBQA68cS8EwBqLdJhF0OByep0FnngxJp4xCZ_p5SDqt492SF5z-b0ebYQFyJ7IcfPuQYAz4aAKRiy-iaYgVGfx_8STx0W7GEEOltnKL_49iWXYx'}).body["businesses"]
 
    puts "UNIREST RESPONSE ======== #{@businesses}"
 
