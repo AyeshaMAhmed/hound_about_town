@@ -1,0 +1,37 @@
+<%= form_tag "/places", method: :get do %>
+  <div>
+    <%= label_tag :city %>
+    <%= text_field_tag :city %>
+
+    <%= label_tag :state %>
+    <%= text_field_tag :state %>
+
+    <%= submit_tag "Submit" %>
+  </div>
+<% end %>
+
+<h1> All Wineries in California: </h1>
+
+<% @businesses.each do |business| %>
+
+<h2> Name: <%= business["name"] %></h2>
+
+<img src="<%= business["image_url"] %>" height="35%" width="35%">
+
+<h3> Address: <%= business["location"]["display_address"][0]%>, <%= business["location"]["display_address"][1]%></h3>
+<h3> Phone: <%= business["display_phone"] %></h3>
+<h3> Price: <%= business["price"] %></h3>
+<h3> Ratings: <%= business["rating"] %></h3> 
+<h3> API ID: <%= business["id"] %></h3> 
+
+
+<%= form_tag "/places", method: :post do %>
+  <%= hidden_field_tag :wineryapi_id, business["id"] %>
+  <%= hidden_field_tag :name, business["name"] %>
+  <input type="submit" value="Add this to wish list">
+<% end %> 
+
+<hr>
+
+<% end %>
+

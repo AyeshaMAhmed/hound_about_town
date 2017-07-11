@@ -11,15 +11,21 @@
 <hr>
 
 <% @pets.each do |pet| %>
-  <p>Pet Name: <%= pet.name %></p> 
-  <p>Gender : <%= pet.gender %></p> 
-  <p>Age : <%= pet.age %></p> 
-  
+<p>Pet Name: <%= pet.name %></p> 
+<p>Gender : <%= pet.gender %></p> 
+<p>Age : <%= pet.age %></p> 
+
+<% end %>
+
+<hr>
+
+<% @places.each do |place| %>
+<p>Name: <%= place.name %></p> 
 <% end %>
 
 
 <%= form_tag "/users/#{@user.id}/edit", method: :get do %>
-  <input type="submit" value="Edit Profile & Preferences">
+<input type="submit" value="Edit Profile & Preferences">
 
 
 <% end %> 

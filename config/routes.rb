@@ -9,6 +9,22 @@ post "/login" => "sessions#create"
 get "/logout" => "sessions#destroy"
 get "/signup" => "users#new"
 
+get "/places" => "places#index"
+
+post "/places" => "places#create"
+
+
+
+
+
+
+
+# namespace :api do 
+#   namespace :v1 do
+#     get "/places" => "places#index"
+#     get '/places:id' => 'places#show'
+#   end
+# end
 
 #    Prefix Verb   URI Pattern               Controller#Action
 #     users GET    /users(.:format)          users#index

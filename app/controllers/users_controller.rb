@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-  
+    
   end
 
   def new
@@ -37,6 +37,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id]) #single hash. You can also use .find(recipe_id)
     @pets = @user.pets
+    @places = @user.places
     render "show.html.erb"
   end
 
@@ -49,5 +50,25 @@ class UsersController < ApplicationController
       redirect_to '/users/show'
     end
   end
+
+  def update
+    @user = User.find_by(id:params[:id])
+    @user.update(
+      username: params[:username],
+      email: params[:email],
+      password: params[:password],
+      password_confirmation: params[:password_confirmation],
+      age: params[:age],
+      gender: params[:gender],
+      city: params[:city], 
+      state: params[:state],
+      zipcode: params[:zipcode],
+      about_me: params[:about_me],
+      image_url: params[:image_url]
+      )
+    flash[:success] = "User Information updated!"
+    redirect_to "/users/#{@user.id}"
+  end
+
 
 end
