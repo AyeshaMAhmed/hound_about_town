@@ -25,7 +25,22 @@ class PlacesController < ApplicationController
       #if not in the db, create a new place in the db
       #after associations are created, redirected to user show page. 
 
-      @place = Place.find_by(wineryapi_id: params[:wineryapi_id])
+    place = Place.find_by(wineryapi_id: params[:wineryapi_id])
+
+    if !place
+      #create a new place in the db
+      place = Place.create(
+        name: params[:name],
+        wineryapi_id: params[:wineryapi_id]
+        )
+    end
+
+    Userplace.create(
+      user_id: current_user.id,
+      place_id: place.id
+      )
+
+    redirect_to "/users/#{current_user.id}"
 
 
 

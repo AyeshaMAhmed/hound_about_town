@@ -10,10 +10,10 @@ get "/logout" => "sessions#destroy"
 get "/signup" => "users#new"
 
 get "/places" => "places#index"
-
 post "/places" => "places#create"
 
-
+get "/pets/new" => "pets#new"
+post "/pets" => "pets#create"
 
 
 

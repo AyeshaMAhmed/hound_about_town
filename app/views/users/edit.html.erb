@@ -3,41 +3,42 @@
 <%= form_tag "/users/#{@user.id}", method: :patch do %>
 
   <div>
-    Name: <input type="text" name="username">
+    Name: <input type="text" name="username" value="<%= @user.username %>">
   </div>
   <div>
-    Email: <input type="email" name="email">
+    Email: <input type="email" name="email" value="<%= @user.email %>">
   </div>
   <div>
-    Password: <input type="password" name="password">
+    Password: <input type="password" name="password" value="<%= @user.password %>">
   </div>
   <div>
-    Confirm Password: <input type="password" name="password_confirmation">
+    Confirm Password: <input type="password" name="password_confirmation" value="<%= @user.password_confirmation %>">
   </div>
   
   <div>
-    Age: <input type="age" name="age">
+    Age: <input type="number" name="age" value="<%= @user.age %>">
   </div>
   <div>
-    Gender: <input type="gender" name="gender">
+    Gender: <input type="text" name="gender" value="<%= @user.gender %>">
   </div>
   <div>
-    City: <input type="city" name="city">
+    City: <input type="text" name="city" value="<%= @user.city %>">
   </div>
   <div>
-    State: <input type="state" name="state">
+    State: <input type="text" name="state" value="<%= @user.state %>">
   </div>
   <div>
-    Zipcode: <input type="state" name="state">
+    Zipcode: <input type="number" name="zipcode" value="<%= @user.zipcode %>">
   </div>
   <div>
     About Me: <textarea name="about_me" id="" cols="30" rows="10"></textarea>
   </div>
   <div>
-    Image URL: <input type="image_url" name="image_url">
+    Image URL: <input type="url" name="image_url">
   </div>
 
   <br>
+  
   <input type="submit" value="Submit">
 
 <% end %>

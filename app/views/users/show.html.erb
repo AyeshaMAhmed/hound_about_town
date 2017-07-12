@@ -3,6 +3,9 @@
 
 <p>Username: <%= @user.username %></p> 
 <p>Email: <%= @user.email %></p> 
+<p>Age: <%= @user.age %></p> 
+<p>Gender: <%= @user.gender %></p> 
+<p>Email: <%= @user.email %></p> 
 <p>City: <%= @user.city %></p> 
 <p>State: <%= @user.state %></p> 
 <p>Zipcode: <%= @user.zipcode %></p> 
@@ -10,23 +13,28 @@
 
 <hr>
 
+<h3> My Pets </h3> 
+
 <% @pets.each do |pet| %>
-<p>Pet Name: <%= pet.name %></p> 
-<p>Gender : <%= pet.gender %></p> 
-<p>Age : <%= pet.age %></p> 
+<p>Pet's Name: <%= pet.name %></p> 
+<p>Pet's Gender : <%= pet.gender %></p> 
+<p>Pet's Age : <%= pet.age %></p> 
 
 <% end %>
 
 <hr>
 
+<h3> My Wish List </h3> 
 <% @places.each do |place| %>
-<p>Name: <%= place.name %></p> 
+<p><%= place.name %></p>
 <% end %>
 
 
 <%= form_tag "/users/#{@user.id}/edit", method: :get do %>
 <input type="submit" value="Edit Profile & Preferences">
+<% end %> 
 
-
+<%= form_tag "/pets/new", method: :post do %>
+<input type="submit" value="Create ">
 <% end %> 
 

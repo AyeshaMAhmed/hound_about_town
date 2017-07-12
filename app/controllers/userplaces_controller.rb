@@ -1,3 +1,4 @@
 class UserplacesController < ApplicationController
 
+
 end

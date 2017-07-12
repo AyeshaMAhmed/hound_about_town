@@ -2,47 +2,43 @@
 
 <%= form_tag '/users', method: :post do  %>
 
-  <div>
-    Name: <input type="text" name="username">
-  </div>
-  <div>
-    Email: <input type="email" name="email">
-  </div>
-  <div>
-    Password: <input type="password" name="password">
-  </div>
-  <div>
-    Confirm Password: <input type="password" name="password_confirmation">
-  </div>
-  
-  <div>
-    Age: <input type="age" name="age">
-  </div>
-  <div>
-    Gender: <input type="gender" name="gender">
-  </div>
-  <div>
-    City: <input type="city" name="city">
-  </div>
-  <div>
-    State: <input type="state" name="state">
-  </div>
-  <div>
-    Zipcode: <input type="state" name="state">
-  </div>
-  <div>
-    About Me: <textarea name="about_me" id="" cols="30" rows="10"></textarea>
-  </div>
-  <div>
-    Image URL: <input type="image_url" name="image_url">
-  </div>
+<div>
+  User Name: <input type="text" name="username">
+</div>
+<div>
+  Email: <input type="email" name="email">
+</div>
+<div>
+  Password: <input type="password" name="password">
+</div>
+<div>
+  Confirm Password: <input type="password" name="password_confirmation">
+</div>
 
-  <br>
-  <button name="button" type="submit">Submit</button>
+<div>
+  Age: <input type="number" name="age">
+</div>
+<div>
+  Gender: <input type="gender" name="gender">
+</div>
+<div>
+  City: <input type="text" name="city">
+</div>
+<div>
+  State: <input type="text" name="state">
+</div>
+<div>
+  Zipcode: <input type="number" name="zipcode">
+</div>
+<div>
+  About Me: <textarea name="about_me" id="" cols="30" rows="10"></textarea>
+</div>
+<div>
+  Image URL: <input type="url" name="image_url">
+</div>
+
+<br>
+
+<input type="submit" value="Create Account">
 
 
-<% end %>
-
-<%= form_tag "/users/show", method: :get do %>
-  <input type="submit" value="New to the site? Create an account!">
-<% end %> 
