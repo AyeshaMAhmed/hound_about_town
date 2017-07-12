@@ -1,3 +1,17 @@
+<%= form_tag "/places", method: :get do %>
+  <div>
+    <%= label_tag :city %>
+    <%= text_field_tag :city %>
+
+    <%= label_tag :state %>
+    <%= text_field_tag :state %>
+
+    <%= submit_tag "Submit" %>
+  </div>
+<% end %>
+
+
+
 <h1>User Profile Page</h1>  
 <!-- user show.html.erb page -->
 
@@ -20,6 +34,8 @@
 <p>Pet's Gender : <%= pet.gender %></p> 
 <p>Pet's Age : <%= pet.age %></p> 
 
+<br>
+
 <% end %>
 
 <hr>
@@ -34,7 +50,9 @@
 <input type="submit" value="Edit Profile & Preferences">
 <% end %> 
 
-<%= form_tag "/pets/new", method: :post do %>
-<input type="submit" value="Create ">
+<br>
+
+<%= form_tag "/pets/new", method: :get do %>
+<input type="submit" value="Add your Pet's info ">
 <% end %> 
 
