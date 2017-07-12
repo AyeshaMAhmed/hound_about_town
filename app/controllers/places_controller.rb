@@ -18,6 +18,12 @@ class PlacesController < ApplicationController
 
  end
 
+  def show
+    @place = Place.find_by(id: params[:id])
+  
+  end
+
+
  def create
 
       #check to see if this winery exists in the DB
@@ -47,10 +53,6 @@ class PlacesController < ApplicationController
 
   end
 
-  def show
-    places = Place.find_by(wineryapi_id: params[:wineryapi_id])
-    render "show.html.erb"
-  end
 
 
 end
