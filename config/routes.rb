@@ -11,6 +11,7 @@ get "/signup" => "users#new"
 
 get "/places" => "places#index"
 post "/places" => "places#create"
+get "/places/:id" => "places#show"
 
 get "/pets/new" => "pets#new"
 post "/pets" => "pets#create"

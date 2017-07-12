@@ -43,11 +43,13 @@
 <h3> My Wish List </h3> 
 <% @places.each do |place| %>
 <p><%= place.name %></p>
+
+
 <% end %>
 
 
 <%= form_tag "/users/#{@user.id}/edit", method: :get do %>
-<input type="submit" value="Edit Profile & Preferences">
+<input type="submit" value="Edit Your Profile">
 <% end %> 
 
 <br>
