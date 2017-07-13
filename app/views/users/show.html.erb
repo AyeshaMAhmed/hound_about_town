@@ -19,11 +19,12 @@
 <p>Email: <%= @user.email %></p> 
 <p>Age: <%= @user.age %></p> 
 <p>Gender: <%= @user.gender %></p> 
-<p>Email: <%= @user.email %></p> 
 <p>City: <%= @user.city %></p> 
 <p>State: <%= @user.state %></p> 
 <p>Zipcode: <%= @user.zipcode %></p> 
 <p>About Me: <%= @user.about_me %></p> 
+
+<%= image_tag @user.avatar.url(:medium) %>
 
 <hr>
 
@@ -33,10 +34,16 @@
 <p>Pet's Name: <%= pet.name %></p> 
 <p>Pet's Gender : <%= pet.gender %></p> 
 <p>Pet's Age : <%= pet.age %></p> 
+<p>Pet ID : <%= pet.id %></p> 
+<%= image_tag pet.avatar.url(:medium) %>
 
-<br>
+<%= form_tag "/pets/#{pet.id}/edit", method: :get do %>
+<input type="submit" value="Edit Pet Profile">
+<% end %> 
 
 <% end %>
+
+
 
 <hr>
 
@@ -55,6 +62,7 @@
 <br>
 
 <%= form_tag "/pets/new", method: :get do %>
-<input type="submit" value="Add your Pet's info ">
+<input type="submit" value="Add Pet Profile">
 <% end %> 
+
 

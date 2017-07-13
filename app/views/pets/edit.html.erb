@@ -1,0 +1,26 @@
+<h1> Edit Your Pet's Information </h1>
+
+<%= form_tag "/pets/#{@pet.id}", multipart: true, method: :patch do  %>
+
+<div>
+  Pet Name: <input type="text" name="name" value="<%= @pet.name %>">
+</div>
+<div>
+  Pet's Gender: <input type="text" name="gender" value="<%= @pet.gender %>">
+</div>
+<div>
+  Pet's Age: <input type="number" name="age" value="<%= @pet.age %>">
+</div>
+
+<div>
+  <%= label_tag :avatar %>
+  <%= file_field_tag :avatar %>
+</div>
+
+<br>
+
+<input type="submit" value="Update Pet">
+
+
+<% end %>
+

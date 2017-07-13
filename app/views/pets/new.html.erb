@@ -1,6 +1,6 @@
 <h1> Add Your Pet's Information </h1>
 
-<%= form_tag '/pets', method: :post do  %>
+<%= form_tag '/pets', multipart: true, method: :post do  %>
 
 <div>
   Pet Name: <input type="text" name="name">
@@ -11,8 +11,10 @@
 <div>
   Pet's Age: <input type="number" name="age">
 </div>
+
 <div>
-  Pet's Image: <input type="url" name="image_url">
+  <%= label_tag :avatar %>
+  <%= file_field_tag :avatar %>
 </div>
 
 <br>
@@ -21,3 +23,4 @@
 
 
 <% end %>
+

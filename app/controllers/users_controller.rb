@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       state: params[:state],
       zipcode: params[:zipcode],
       about_me: params[:about_me],
-      image_url: params[:image_url]
+      avatar: params[:avatar]
       )
 
     
@@ -66,8 +66,9 @@ class UsersController < ApplicationController
       state: params[:state],
       zipcode: params[:zipcode],
       about_me: params[:about_me],
-      image_url: params[:image_url]
+      avatar: params[:avatar]
       )
+    
     flash[:success] = "User Information updated!"
     redirect_to "/users/#{@user.id}"
   end

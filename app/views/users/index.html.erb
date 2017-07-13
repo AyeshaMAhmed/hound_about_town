@@ -5,4 +5,7 @@
   <p>City: <%= user.city %></p> 
   <p>State: <%= user.state %></p> 
   
+  <%= image_tag user.avatar.url(:medium) %>
+<hr>
+
 <% end %>

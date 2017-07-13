@@ -13,10 +13,12 @@ get "/places" => "places#index"
 post "/places" => "places#create"
 get "/places/:id" => "places#show"
 
-get "/pets/new" => "pets#new"
 post "/pets" => "pets#create"
+get "/pets/new" => "pets#new"
+get "/pets/:id/edit" => "pets#edit"
+patch "/pets/:id" => "pets#update"
 
-
+get "/users/:id" => "users#show"
 
 
 

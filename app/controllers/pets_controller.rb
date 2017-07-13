@@ -9,11 +9,16 @@ class PetsController < ApplicationController
       name: params[:name],
       gender: params[:gender],
       age: params[:age],
-      image_url: params[:image_url]
-
+      avatar: params[:avatar]
       )
 
     redirect_to "/users/#{user_id}"
+  end
+
+  def edit
+    @pet = Pet.find_by(id: params[:id]) #single hash
+    render "edit.html.erb"
+
   end
 
 
@@ -23,8 +28,10 @@ class PetsController < ApplicationController
       name: params[:name],
       gender: params[:gender],
       age: params[:age],
-      image_url: params[:image_url]
+      avatar: params[:avatar]
       )
+
+    redirect_to "/users/#{current_user.id}"
   end
 
 end
