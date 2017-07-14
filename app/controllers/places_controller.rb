@@ -20,9 +20,18 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find_by(id: params[:id])
-    @business = Unirest.get("https://api.yelp.com/v3/businesses/#{:wineryapi_id}", headers: {'Authorization' => 'Bearer 5fsDEJnWqGEObi2nRiBQA68cS8EwBqLdJhF0OByep0FnngxJp4xCZ_p5SDqt492SF5z-b0ebYQFyJ7IcfPuQYAz4aAKRiy-iaYgVGfx_8STx0W7GEEOltnKL_49iWXYx'}).body
+    
+    @winery = @place["wineryapi_id"]
+    
+    @users = @place.users
+
+
+    @business = Unirest.get("https://api.yelp.com/v3/businesses/#{@winery}", headers: {'Authorization' => 'Bearer 5fsDEJnWqGEObi2nRiBQA68cS8EwBqLdJhF0OByep0FnngxJp4xCZ_p5SDqt492SF5z-b0ebYQFyJ7IcfPuQYAz4aAKRiy-iaYgVGfx_8STx0W7GEEOltnKL_49iWXYx'}).body
 
     puts "UNIREST RESPONSE ======== #{@business}"
+
+
+
 
     render :show
   end
