@@ -72,6 +72,12 @@ class UsersController < ApplicationController
     flash[:success] = "User Information updated!"
     redirect_to "/users/#{@user.id}"
   end
-
+  
+  def destroy
+     user = User.find_by(id:params[:id])
+     user.destroy
+     flash[:danger] = "Account successfully deleted!"
+     redirect_to "/login"
+   end
 
 end

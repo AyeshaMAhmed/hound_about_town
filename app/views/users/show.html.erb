@@ -12,7 +12,9 @@
 
 
 
-<h1>User Profile Page</h1>  
+<h1> My Dashboard </h1>  
+
+<h4> My Details </h4>  
 <!-- user show.html.erb page -->
 
 <p>Username: <%= @user.username %></p> 
@@ -22,6 +24,8 @@
 <p>City: <%= @user.city %></p> 
 <p>State: <%= @user.state %></p> 
 <p>Zipcode: <%= @user.zipcode %></p> 
+
+<h4> My Self Summary </h4>
 <p>About Me: <%= @user.about_me %></p> 
 
 <%= image_tag @user.avatar.url(:medium) %>
@@ -65,4 +69,8 @@
 <input type="submit" value="Add Pet Profile">
 <% end %> 
 
+<br>
 
+<%= form_tag "/users/#{@user.id}", method: :delete do %>
+  <input type="submit" value="DELETE ACCOUNT">
+<% end %>

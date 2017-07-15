@@ -18,26 +18,24 @@ class PlacesController < ApplicationController
 
  end
 
-  def show
-    @place = Place.find_by(id: params[:id])
-    
-    @winery = @place["wineryapi_id"]
-    
-    @users = @place.users
+ def show
+  @place = Place.find_by(id: params[:id])
+
+  @winery = @place["wineryapi_id"]
+
+  @users = @place.users
 
 
-    @business = Unirest.get("https://api.yelp.com/v3/businesses/#{@winery}", headers: {'Authorization' => 'Bearer 5fsDEJnWqGEObi2nRiBQA68cS8EwBqLdJhF0OByep0FnngxJp4xCZ_p5SDqt492SF5z-b0ebYQFyJ7IcfPuQYAz4aAKRiy-iaYgVGfx_8STx0W7GEEOltnKL_49iWXYx'}).body
+  @business = Unirest.get("https://api.yelp.com/v3/businesses/#{@winery}", headers: {'Authorization' => 'Bearer 5fsDEJnWqGEObi2nRiBQA68cS8EwBqLdJhF0OByep0FnngxJp4xCZ_p5SDqt492SF5z-b0ebYQFyJ7IcfPuQYAz4aAKRiy-iaYgVGfx_8STx0W7GEEOltnKL_49iWXYx'}).body
 
+  
     puts "UNIREST RESPONSE ======== #{@business}"
-
-
-
 
     render :show
   end
 
 
- def create
+  def create
 
       #check to see if this winery exists in the DB
       #if in DB, make userplace association with current user id and place id from DB
@@ -54,7 +52,7 @@ class PlacesController < ApplicationController
         )
       end
 
-    Userplace.create(
+      Userplace.create(
       user_id: current_user.id,
       place_id: place.id
       )
@@ -65,7 +63,6 @@ class PlacesController < ApplicationController
 
 
   end
-
 
 
 end

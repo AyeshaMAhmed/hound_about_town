@@ -11,6 +11,8 @@
 <h3> Phone: <%= @business["display_phone"] %></h3>
 <h3> Price: <%= @business["price"] %></h3>
 <h3> Ratings: <%= @business["rating"] %></h3> 
+<h3> Reviews: <%= @business["review_count"] %></h3> 
+<a href="<%= @business["url"]%>"> Website </a>
 
 <% end %> 
 
@@ -18,9 +20,11 @@
 
 <% @users.each do |user| %>
 
-<p><%= user.username  %></p> 
-<p><%= user.age  %></p> 
-<%= image_tag @user.avatar.url(:medium) %>
+  <p><%= user.username  %></p> 
+  <p><%= user.city  %></p> 
+  <p><%= user.state  %></p>  
+  <%= image_tag user.avatar.url(:medium) %>
+  <p><a href="mailto: <%= user.email %>"><%= user.email %></a></p>
 
 
 <% end %>
