@@ -1,3 +1,4 @@
+<h2> Search Wineries Nearby </h2> 
 <%= form_tag "/places", method: :get do %>
   <div>
     <%= label_tag :city %>
@@ -12,7 +13,7 @@
 <br>
 <hr>
 
-<h1> Local Wineries Nearby: </h1>
+<h1> Here are some local Wineries nearby: </h1>
 
 <% @businesses.each do |business| %>
 

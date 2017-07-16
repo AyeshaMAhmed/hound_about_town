@@ -1,14 +1,29 @@
-<h1> Business information </h1>
+<h2> Search Wineries Nearby </h2> 
+<%= form_tag "/places", method: :get do %>
+  <div>
+    <%= label_tag :city %>
+    <%= text_field_tag :city %>
+
+    <%= label_tag :state %>
+    <%= text_field_tag :state %>
+
+    <%= submit_tag "Submit" %>
+  </div>
+<% end %>
+
+<hr>
 
 <div>
 
-<h2><%= @business["name"] %></h2>
+<h1><%= @business["name"] %></h1>
 
 <%= form_tag "/places", method: :post do %>
   <%= hidden_field_tag :wineryapi_id, @business["id"] %>
   <%= hidden_field_tag :name, @business["name"] %>
   <input type="submit" value="Add this to wish list">
 <% end %> 
+
+<br>
 
 <img src="<%= @business["image_url"] %>" height="35%" width="35%">
 
@@ -19,19 +34,20 @@
 <h3> Reviews: <%= @business["review_count"] %></h3> 
 <h3> Hours:</h3> 
 <% @hours.each do |day| %>
-  Day: <%= day["day"] %>
-  Start: <%= Time.strptime(day["start"], '%H%M').strftime('%l:%M %p') %>
-  End: <%= Time.strptime(day["end"], '%H%M').strftime('%l:%M %p') %>
+  <%= @days[day["day"]] %>
+  <%= Time.strptime(day["start"], '%H%M').strftime('%l:%M %p') %>
+  <%= Time.strptime(day["end"], '%H%M').strftime('%l:%M %p') %>
   <br>
 <% end %>
 
+<br>
 
-<a href="<%= @business["url"]%>"> Website </a>
+<a href="<%= @business["url"]%>"><%= @business["name"]%></a>
 
 
 <hr>
 
-<h3> Great minds think alike! Here are other users that want to go to the same place. Shoot them an email! </h3>
+<h3> Great minds think alike! Here are other users that want to go to the same place. How about coordinating a meetup?</h3>
 
 <% if @place %>
   <% @users.each do |user| %>

@@ -4,7 +4,7 @@
 
 <hr>
 
-
+<h2> Search Wineries Nearby </h2> 
 <%= form_tag "/places", method: :get do %>
   <div>
     <%= label_tag :city %>
@@ -31,14 +31,14 @@
 <p>State: <%= @user.state %></p> 
 <p>Zipcode: <%= @user.zipcode %></p> 
 
-<h4> My Self Summary </h4>
+<h4> A little bit more about Me </h4>
 <p>About Me: <%= @user.about_me %></p> 
 
 <%= image_tag @user.avatar.url(:medium) %>
 
 <hr>
 
-<h3> My Pets </h3> 
+<h3> My Best Furry Friend </h3> 
 
 <% @pets.each do |pet| %>
 <p>Pet's Name: <%= pet.name %></p> 
@@ -54,10 +54,9 @@
 <% end %>
 
 
-
 <hr>
 
-<h3> My Wish List </h3> 
+<h3> My Winery Wish List </h3> 
 <% @places.each do |place| %>
 <p><%= place.name %></p>
 
