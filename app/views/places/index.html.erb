@@ -16,7 +16,7 @@
 
 <% @businesses.each do |business| %>
 
-<h2> Name: <%= business["name"] %></h2>
+<h2><%= business["name"] %></h2>
 
 <img src="<%= business["image_url"] %>" height="35%" width="35%">
 
@@ -37,4 +37,5 @@
 <hr>
 
 <% end %>
+
 

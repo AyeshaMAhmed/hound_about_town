@@ -1,3 +1,10 @@
+<%= form_tag "/logout", method: :get do %>
+  <input type="submit" value="Logout">
+<% end %> 
+
+<hr>
+
+
 <%= form_tag "/places", method: :get do %>
   <div>
     <%= label_tag :city %>
@@ -6,10 +13,9 @@
     <%= label_tag :state %>
     <%= text_field_tag :state %>
 
-    <%= submit_tag "Submit" %>
+    <%= submit_tag "Search" %>
   </div>
 <% end %>
-
 
 
 <h1> My Dashboard </h1>  

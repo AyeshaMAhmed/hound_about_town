@@ -1,23 +1,27 @@
 <h1> Hound About Town </h1>
 
-<h1> Discover new dog friendly places with your best furry friend! </h1>
+<h1> A new social site to bring people and their best furry friends together!</h1>
 
 <h2> Let's Go! </h2>
 
 <%= form_tag "/login", method: :post do %>
+
   <div>
-    Email: <input type="email" name="email">
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
   </div>
   <div>
-    Password: <input type="password" name="password">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
   </div>
-  
-  <br>
-  <input type="submit" value="Log In">
+  <%= submit_tag "Login" %>
 
 <% end %>
 
+
 <br>
+
 <%= form_tag "/signup", method: :get do %>
   <input type="submit" value="New to the site? Create an account!">
 <% end %> 
+

@@ -3,7 +3,7 @@
 <%= form_tag "/places/#{@place.id}", method: :get do %>
 <div>
 
-<h2> Name: <%= @business["name"] %></h2>
+<h2><%= @business["name"] %></h2>
 
 <img src="<%= @business["image_url"] %>" height="35%" width="35%">
 
@@ -18,15 +18,16 @@
 
 <hr>
 
+<h3> Great minds think alike! Here are other users that want to go to the same place. Shoot them an email! </h3>
+
 <% @users.each do |user| %>
 
   <p><%= user.username  %></p> 
   <p><%= user.city  %></p> 
-  <p><%= user.state  %></p>  
-  <%= image_tag user.avatar.url(:medium) %>
+  <%= image_tag user.avatar.url(:thumb) %>
   <p><a href="mailto: <%= user.email %>"><%= user.email %></a></p>
 
-
+  <hr>
 <% end %>
 
 

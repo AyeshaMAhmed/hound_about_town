@@ -1,10 +1,9 @@
 class PlacesController < ApplicationController
 
   def index
-
-
-   @location = "sanfrancisco"
-   state = "ca"
+   
+    @location = "sanfrancisco"
+    state = "ca"
 
    if params[:city] && params[:state]
      @location = params[:city]
