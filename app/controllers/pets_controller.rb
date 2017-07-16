@@ -34,4 +34,13 @@ class PetsController < ApplicationController
     redirect_to "/users/#{current_user.id}"
   end
 
+  def destroy
+     @pet = Pet.find_by(id:params[:id])
+     @pet.destroy
+     flash[:danger] = "Pet deleted"
+     redirect_to "/users/#{current_user.id}"
+   end
+
+
+
 end

@@ -17,6 +17,7 @@ post "/pets" => "pets#create"
 get "/pets/new" => "pets#new"
 get "/pets/:id/edit" => "pets#edit"
 patch "/pets/:id" => "pets#update"
+delete "/pets/:id" => "pets#destroy"
 
 get "/users/:id" => "users#show"
 
