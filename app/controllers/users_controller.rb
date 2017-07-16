@@ -30,7 +30,12 @@ class UsersController < ApplicationController
 
       redirect_to "/users/#{@user.id}"
     else
-      flash[:warning] = 'Invalid email or password!'
+      errors = "Please fix the following errors: "
+      @user.errors.full_messages.each do |message|
+        errors += "#{message} " 
+      end
+
+      flash[:warning] = errors
       redirect_to '/signup'
     end
   end

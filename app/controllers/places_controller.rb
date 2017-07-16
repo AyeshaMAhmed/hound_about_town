@@ -18,20 +18,22 @@ class PlacesController < ApplicationController
  end
 
  def show
-  @place = Place.find_by(id: params[:id])
+  @place = Place.find_by(wineryapi_id: params[:winery_id])
 
-  @winery = @place["wineryapi_id"]
-
-  @users = @place.users
-
-
-  @business = Unirest.get("https://api.yelp.com/v3/businesses/#{@winery}", headers: {'Authorization' => 'Bearer 5fsDEJnWqGEObi2nRiBQA68cS8EwBqLdJhF0OByep0FnngxJp4xCZ_p5SDqt492SF5z-b0ebYQFyJ7IcfPuQYAz4aAKRiy-iaYgVGfx_8STx0W7GEEOltnKL_49iWXYx'}).body
-
-  
-    puts "UNIREST RESPONSE ======== #{@business}"
-
-    render :show
+  if @place #if we found a matching place in our db
+    @users = @place.users
   end
+
+  @winery_id = params[:winery_id] #ravenswood-winery-sonoma-3
+
+  @business = Unirest.get("https://api.yelp.com/v3/businesses/#{@winery_id}", headers: {'Authorization' => 'Bearer 5fsDEJnWqGEObi2nRiBQA68cS8EwBqLdJhF0OByep0FnngxJp4xCZ_p5SDqt492SF5z-b0ebYQFyJ7IcfPuQYAz4aAKRiy-iaYgVGfx_8STx0W7GEEOltnKL_49iWXYx'}).body
+
+  @hours = @business["hours"][0]["open"]
+  
+  puts "UNIREST RESPONSE ======== #{@business}"
+
+  render :show
+ end
 
 
   def create

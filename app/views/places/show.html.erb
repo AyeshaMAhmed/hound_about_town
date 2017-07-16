@@ -1,9 +1,14 @@
 <h1> Business information </h1>
 
-<%= form_tag "/places/#{@place.id}", method: :get do %>
 <div>
 
 <h2><%= @business["name"] %></h2>
+
+<%= form_tag "/places", method: :post do %>
+  <%= hidden_field_tag :wineryapi_id, @business["id"] %>
+  <%= hidden_field_tag :name, @business["name"] %>
+  <input type="submit" value="Add this to wish list">
+<% end %> 
 
 <img src="<%= @business["image_url"] %>" height="35%" width="35%">
 
@@ -12,22 +17,32 @@
 <h3> Price: <%= @business["price"] %></h3>
 <h3> Ratings: <%= @business["rating"] %></h3> 
 <h3> Reviews: <%= @business["review_count"] %></h3> 
+<h3> Hours:</h3> 
+<% @hours.each do |day| %>
+  Day: <%= day["day"] %>
+  Start: <%= Time.strptime(day["start"], '%H%M').strftime('%l:%M %p') %>
+  End: <%= Time.strptime(day["end"], '%H%M').strftime('%l:%M %p') %>
+  <br>
+<% end %>
+
+
 <a href="<%= @business["url"]%>"> Website </a>
 
-<% end %> 
 
 <hr>
 
 <h3> Great minds think alike! Here are other users that want to go to the same place. Shoot them an email! </h3>
 
-<% @users.each do |user| %>
+<% if @place %>
+  <% @users.each do |user| %>
 
-  <p><%= user.username  %></p> 
-  <p><%= user.city  %></p> 
-  <%= image_tag user.avatar.url(:thumb) %>
-  <p><a href="mailto: <%= user.email %>"><%= user.email %></a></p>
+    <p><%= user.username  %></p> 
+    <p><%= user.city  %></p> 
+    <%= image_tag user.avatar.url(:thumb) %>
+    <p><a href="mailto: <%= user.email %>"><%= user.email %></a></p>
 
-  <hr>
+    <hr>
+  <% end %>
 <% end %>
 
 

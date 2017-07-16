@@ -21,9 +21,10 @@
 
 <input type="submit" value="Update Pet">
 
+<% end %>
+
+
+
 <%= form_tag "/pets/#{@pet.id}", method: :delete do %>
   <input type="submit" value="Delete Pet">
 <% end %>
-
-<% end %>
-
