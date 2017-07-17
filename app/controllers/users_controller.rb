@@ -42,6 +42,7 @@ class UsersController < ApplicationController
 
 
   def show
+
     @user = User.find(params[:id]) #single hash. You can also use .find(recipe_id)
     @pets = @user.pets
     @places = @user.places

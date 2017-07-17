@@ -1,4 +1,4 @@
-<h2> Search Wineries Nearby </h2> 
+<h2> Search Wineries </h2> 
 <%= form_tag "/places", method: :get do %>
   <div>
     <%= label_tag :city %>
@@ -13,29 +13,28 @@
 <br>
 <hr>
 
-<h1> Here are some local Wineries nearby: </h1>
+<h1> Here are some local Wineries to visit!</h1>
+  <ol>
+    <% @businesses.each do |business| %>
+  <li>
+    <h2><a href="/places/<%=business['id']%>"> <%= business["name"] %> </a></h2>
 
-<% @businesses.each do |business| %>
+    <img src="<%= business["image_url"] %>" height="35%" width="35%">
 
-<h2><a href="/places/<%=business['id']%>"> <%= business["name"] %> </a></h2>
+    <h3> Address: <%= business["location"]["display_address"][0]%>, <%= business["location"]["display_address"][1]%></h3>
+    <h3> Phone: <%= business["display_phone"] %></h3>
+    <h3> Price: <%= business["price"] %></h3>
+    <h3> Ratings: <%= business["rating"] %></h3> 
+    <h3> API ID: <%= business["id"] %></h3> 
+  </li>
 
-<img src="<%= business["image_url"] %>" height="35%" width="35%">
-
-<h3> Address: <%= business["location"]["display_address"][0]%>, <%= business["location"]["display_address"][1]%></h3>
-<h3> Phone: <%= business["display_phone"] %></h3>
-<h3> Price: <%= business["price"] %></h3>
-<h3> Ratings: <%= business["rating"] %></h3> 
-<h3> API ID: <%= business["id"] %></h3> 
-
-
-
-<%= form_tag "/places", method: :post do %>
-  <%= hidden_field_tag :wineryapi_id, business["id"] %>
-  <%= hidden_field_tag :name, business["name"] %>
-  <input type="submit" value="Add this to wish list">
-<% end %> 
+  <%= form_tag "/places", method: :post do %>
+    <%= hidden_field_tag :wineryapi_id, business["id"] %>
+    <%= hidden_field_tag :name, business["name"] %>
+    <input type="submit" value="Add this to wish list">
+  <% end %> 
 
 <hr>
 
 <% end %>
-
+</ol>

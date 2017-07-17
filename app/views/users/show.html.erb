@@ -53,15 +53,18 @@
 
 <% end %>
 
-
 <hr>
 
+
 <h3> My Winery Wish List </h3> 
-<% @places.each do |place| %>
-<p><%= place.name %></p>
-
-
+<ol>
+  <% @places.each do |place| %>
+  <li>
+  <p><%= place.name %></p>
+  </li>
 <% end %>
+ </ol>
+
 
 
 <%= form_tag "/users/#{@user.id}/edit", method: :get do %>
