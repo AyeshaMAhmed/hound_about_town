@@ -26,7 +26,10 @@
     <h3> Price: <%= business["price"] %></h3>
     <h3> Ratings: <%= business["rating"] %></h3> 
     <h3> API ID: <%= business["id"] %></h3> 
+   
   </li>
+    
+  
 
   <%= form_tag "/places", method: :post do %>
     <%= hidden_field_tag :wineryapi_id, business["id"] %>
@@ -34,7 +37,7 @@
     <input type="submit" value="Add this to wish list">
   <% end %> 
 
-<hr>
+  <hr>
 
 <% end %>
 </ol>
