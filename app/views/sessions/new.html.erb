@@ -1,27 +1,63 @@
-<h1> Hound About Town </h1>
-
-<h1> A new social site to bring people and their best furry friends together!</h1>
-
-<h2> Let's Go! </h2>
-
-<%= form_tag "/login", method: :post do %>
-
-  <div>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-  </div>
-  <div>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <%= submit_tag "Login" %>
-
-<% end %>
-
-
 <br>
+<br>
+<h1 class="center"> Hound About Town </h1>
+<br> 
+<h2 class="center">A new social site to bring wine lovers and their furry friends together!</h2>
+<!-- Login -->
+<section class="container g-py-100">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 col-lg-5">
+      <div class="g-brd-around g-brd-gray-light-v4 rounded g-py-40 g-px-30">
+        <header class="text-center mb-4">
+          <h2 class="h2 g-color-black g-font-weight-600">Login</h2>
+        </header>
 
-<%= form_tag "/signup", method: :get do %>
-  <input type="submit" value="New to the site? Create an account!">
-<% end %> 
+        <!-- Form -->
+        <%= form_tag "/login", method: :post, :class => "g-py-15" do %>
+          
+          <div class="mb-4">
+            <label class="g-color-gray-dark-v2 g-font-weight-600 g-font-size-13" for="email">Email:</label>
+            <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15" id="email" name="email" type="email" placeholder="johndoe@gmail.com">
+          </div>
 
+          <div class="g-mb-35">
+            <div class="row justify-content-between">
+              <div class="col align-self-center">
+                <label class="g-color-gray-dark-v2 g-font-weight-600 g-font-size-13" for="password">Password:</label>
+              </div>
+              <!-- <div class="col align-self-center text-right">
+                <a class="d-inline-block g-font-size-12 mb-2" href="#">Forgot password?</a>
+              </div> -->
+            </div>
+            <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--hover rounded g-py-15 g-px-15 mb-3" id="password" name="password" type="password" placeholder="Password">
+            <div class="row justify-content-between">
+              <div class="col-8 align-self-center">
+                <label class="form-check-inline u-check g-color-gray-dark-v5 g-font-size-13 g-pl-25 mb-0">
+                  <input class="hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox">
+                  <div class="u-check-icon-checkbox-v6 g-absolute-centered--y g-left-0">
+                    <i class="fa" data-check-icon="&#xf00c"></i>
+                  </div>
+                  Keep signed in
+                </label>
+              </div>
+              <div class="col-4 align-self-center text-right">
+ 
+                  <input class="btn u-btn-outline-primary g-font-size-13 text-uppercase g-py-10 g-px-15" name="commit" type="submit" value="Login">
+
+                  
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+
+        <!-- End Form -->
+
+        <footer class="text-center">
+          <p class="g-color-gray-dark-v5 g-font-size-13 mb-0">Don't have an account? <a class="g-font-weight-600" href="/signup">signup</a></p>
+        </footer>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Login -->
