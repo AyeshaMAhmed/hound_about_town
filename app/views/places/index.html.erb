@@ -14,7 +14,6 @@
         <i class="icon-magnifier g-pos-rel g-top-1"></i>
       </button>
 
-
     </div>
   </div>
   <!-- <small class="form-text g-opacity-0_8 g-font-size-default">Search any words, questions and so on here.</small> -->
@@ -24,6 +23,8 @@
 
 
 <h2> Here are some local Wineries to visit!</h2>
+
+<br>
 
 <% @businesses.each do |business| %>
 
@@ -35,16 +36,13 @@
 <h3> Phone: <%= business["display_phone"] %></h3>
 <h3> Price: <%= business["price"] %></h3>
 <h3> Ratings: <%= business["rating"] %></h3> 
-<h3> API ID: <%= business["id"] %></h3> 
-
-
-
 
 
 <%= form_tag "/places", method: :post do %>
 <%= hidden_field_tag :wineryapi_id, business["id"] %>
 <%= hidden_field_tag :name, business["name"] %>
-<input type="submit" value="Add this to wish list">
+
+<input class="btn u-btn-outline-primary g-font-size-13 text-uppercase g-py-10 g-px-15" type="submit" value="Add this to wish list">
 <% end %> 
 
 <hr>

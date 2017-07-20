@@ -1,16 +1,25 @@
-<h2> Search Wineries Nearby </h2> 
-<%= form_tag "/places", method: :get do %>
-<div>
-  <%= label_tag :city %>
-  <%= text_field_tag :city %>
+<br>
+<br>
 
-  <%= label_tag :state %>
-  <%= text_field_tag :state %>
+<!-- Search Form -->
+<%= form_tag "/places", method: :get, :class => "form-group g-mb-20" do %>
 
-  <%= submit_tag "Submit" %>
+<div class="form-group g-mb-20">
+  <div class="input-group u-shadow-v21 rounded g-mb-15">
+    <input class="form-control form-control-md g-brd-white g-font-size-16 border-right-0 pr-0 g-py-15" type="text" name="city" placeholder="Search City">
+    <input class="form-control form-control-md g-brd-white g-font-size-16 border-right-0 pr-0 g-py-15" type="text" name="state" placeholder="Search State">
+    <div class="input-group-addon d-flex align-items-center g-bg-white g-brd-white g-color-gray-light-v1 g-pa-2">
+
+      <button class="btn u-btn-primary g-font-size-16 g-py-15 g-px-20" type="Search" value="search">
+        <i class="icon-magnifier g-pos-rel g-top-1"></i>
+      </button>
+
+    </div>
+  </div>
+  <!-- <small class="form-text g-opacity-0_8 g-font-size-default">Search any words, questions and so on here.</small> -->
 </div>
 <% end %>
-
+<!-- End Search Form -->
 <hr>
 
 <div>
@@ -23,8 +32,6 @@
   <input class="btn u-btn-outline-primary g-font-size-13 text-uppercase g-py-10 g-px-15" type="submit" value="Add this to wish list">
 
   <% end %> 
-
-  <br>
 
   <!-- Blog Background Overlay Blocks -->
   <div class="container g-py-100">
@@ -47,8 +54,6 @@
       </div>
     </div>
 
-
-  <br>
       <h3> Address: <%= @business["location"]["display_address"][0]%>, <%= @business["location"]["display_address"][1]%></h3>
       <h3> Phone: <%= @business["display_phone"] %></h3>
       <h3> Price: <%= @business["price"] %></h3>
