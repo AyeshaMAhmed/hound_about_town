@@ -127,80 +127,79 @@
 
 <h3 class="center"> My Best Furry Friend </h3> 
 
-<% @pets.each do |pet| %>
-<div class="col-md-4 g-mb-30">
-  <!-- Figure -->
-  <figure class="u-info-v7-1 u-info-v7-1__item g-bg-white g-rounded-4 text-center">
-    <div class="g-py-40 g-px-20">
-      <!-- Figure Image -->
-      <img class="u-info-v7-1__item-child-v1 g-width-100 g-height-100 rounded-circle g-mb-20" src="<%= pet.avatar.url(:medium) %>" alt="Image Description">
-      <!-- Figure Image -->
+  <div class="row">
+  <% @pets.each do |pet| %>
+  <div class="col-md-4 g-mb-30">
+    <!-- Figure -->
+    <figure class="u-info-v7-1 u-info-v7-1__item g-bg-white g-rounded-4 text-center">
+      <div class="g-py-40 g-px-20">
+        <!-- Figure Image -->
+        <img class="u-info-v7-1__item-child-v1 g-width-100 g-height-100 rounded-circle g-mb-20" src="<%= pet.avatar.url(:medium) %>" alt="Image Description">
+        <!-- Figure Image -->
 
-      <!-- Figure Info -->
-      <h4 class="h5 g-mb-5">Name: <%= pet.name %></h4>
-      <div class="d-block">
-        <span class="g-color-cyan g-font-size-default g-mr-3">
-          <i class="icon-user"></i>
-        </span>
-        <em class="g-color-gray-dark-v4 g-font-style-normal g-font-size-default">Age: <%= pet.age %></em>
+        <!-- Figure Info -->
+        <h4 class="h5 g-mb-5">Name: <%= pet.name %></h4>
+        <div class="d-block">
+          <span class="g-color-cyan g-font-size-default g-mr-3">
+            <i class="icon-user"></i>
+          </span>
+          <em class="g-color-gray-dark-v4 g-font-style-normal g-font-size-default">Age: <%= pet.age %></em>
+        </div>
+        <!-- End Figure Info -->
       </div>
-      <!-- End Figure Info -->
-    </div>
+  <%= form_tag "/pets/#{pet.id}/edit", method: :get do %>
+  <input class="btn u-btn-outline-primary g-font-size-13 text-uppercase g-py-10 g-px-15" type="submit" value="Edit Pet Profile">
+  <% end %> 
+      <!-- <hr class="g-brd-gray-light-v4 g-my-0"> -->
 
-    <!-- <hr class="g-brd-gray-light-v4 g-my-0"> -->
+    </figure>
+    <!-- End Figure -->
+  </div>
+    
 
-  </figure>
-  <!-- End Figure -->
+  <% end %>
 </div>
 
-
-<%= form_tag "/pets/#{pet.id}/edit", method: :get do %>
-<input class="btn u-btn-outline-primary g-font-size-13 text-uppercase g-py-10 g-px-15" type="submit" value="Edit Pet Profile">
-<% end %> 
-
-<% end %>
+  <hr>
 
 
-<hr>
+  <h3 class="center"> My Winery Wish List </h3> 
 
-
-<h3 class="center"> My Winery Wish List </h3> 
-
-<br>
+  <br>
 
   <% @places.each do |place| %>
 
-    <h4><a href="/places/<%= place.wineryapi_id %>"><%= place.name %></a></h4>
+  <h4><a href="/places/<%= place.wineryapi_id %>"><%= place.name %></a></h4>
 
   <% end %>
 
 
-<hr>
+  <hr>
 
 
 
-<div class="row">
+  <div class="row">
 
-  <div class="col-sm-4">
-    <%= form_tag "/users/#{@user.id}/edit", method: :get do %>
-    <input class="btn u-btn-outline-primary g-font-size-13 text-uppercase g-py-10 g-px-15" name="commit" type="submit" value="Edit Your Profile">
-    <% end %> 
+    <div class="col-sm-4">
+      <%= form_tag "/users/#{@user.id}/edit", method: :get do %>
+      <input class="btn u-btn-outline-primary g-font-size-13 text-uppercase g-py-10 g-px-15" name="commit" type="submit" value="Edit Your Profile">
+      <% end %> 
+    </div>
+
+    <div class="col-sm-4">
+      <%= form_tag "/pets/new", method: :get do %>
+      <input class="btn u-btn-outline-primary g-font-size-13 text-uppercase g-py-10 g-px-15" name="commit" type="submit" value="Add Your Pet">
+      <% end %> 
+    </div>
+
+    <div class="col-sm-4">
+      <%= form_tag "/users/#{@user.id}", method: :delete do %>
+      <input class="btn u-btn-outline-primary g-font-size-13 text-uppercase g-py-10 g-px-15" name="commit" type="submit" value="Delete Account">
+      <% end %>
+
+
+    </div>
+
+
   </div>
-  
-  <div class="col-sm-4">
-    <%= form_tag "/pets/new", method: :get do %>
-    <input class="btn u-btn-outline-primary g-font-size-13 text-uppercase g-py-10 g-px-15" name="commit" type="submit" value="Add Your Pet">
-    <% end %> 
-  </div>
-  
-  <div class="col-sm-4">
-    <%= form_tag "/users/#{@user.id}", method: :delete do %>
-    <input class="btn u-btn-outline-primary g-font-size-13 text-uppercase g-py-10 g-px-15" name="commit" type="submit" value="Delete Account">
-    <% end %>
-
-
-  </div>
-
-
-</div>
 
