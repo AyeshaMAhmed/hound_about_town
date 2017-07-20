@@ -76,8 +76,11 @@
       <!-- Figure Info -->
       <div class="g-mb-50">
         <p>About Me: <%= @user.about_me %></p>
-        <p>Email: <%= @user.email %></p>
+        
+        <p>Email: <a href="mailto: <%= @user.email %>"><%= @user.email %></a></p>
+
       </div>
+  
       <!-- End Info -->
 
       <div class="row">
