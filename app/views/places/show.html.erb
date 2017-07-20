@@ -1,5 +1,5 @@
 <br>
-<br>
+
 
 <!-- Search Form -->
 <%= form_tag "/places", method: :get, :class => "form-group g-mb-20" do %>
@@ -33,6 +33,8 @@
 
   <% end %> 
 
+  <br>
+
   <!-- Blog Background Overlay Blocks -->
   <div class="container g-py-100">
     <div class="masonry-grid row g-mb-70">
@@ -54,6 +56,8 @@
       </div>
     </div>
 
+
+  <br>
       <h3> Address: <%= @business["location"]["display_address"][0]%>, <%= @business["location"]["display_address"][1]%></h3>
       <h3> Phone: <%= @business["display_phone"] %></h3>
       <h3> Price: <%= @business["price"] %></h3>
