@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :places, through: :userplaces
   has_many :votes
 
+  attr_accessor :avatar_file_name
+
   has_attached_file :avatar,
                     :styles => {:medium => "150x150>", :thumb => "44x44#" },
                     :default_url => "/images/default.png"
